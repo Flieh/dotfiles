@@ -194,4 +194,6 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 " Working with IBM i (RPG)
+syntax on
+set filetype=on
 so ~/.vim/mysyntax.vim
