@@ -1,0 +1,17 @@
+BLUETOOTH ERRORS
+
+The solution from this article worked for me:
+
+sudo apt-get install pulseaudio-module-bluetooth
+pactl load-module module-bluetooth-discover
+
+Then delete the device from bluetooth devices and pair it again.
+
+If it works, you can consider adding the second command to your startup settings, so that you don't have to run it again after every reboot.
+
+If it doesn't work, try restarting pulseaudio:
+
+pulseaudio -k
+pulseaudio -D
+
+
