@@ -15,6 +15,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary' 
 "easy motion
 Plugin 'easymotion/vim-easymotion' 
+" surround
+Plugin 'tpope/vim-surround'
 
 " use single leader for easymotion
 map <Leader> <Plug>(easymotion-prefix)
