@@ -1,5 +1,7 @@
 BLUETOOTH ERRORS
 
+https://askubuntu.com/questions/801404/bluetooth-connection-failed-blueman-bluez-errors-dbusfailederror-protocol-no
+
 The solution from this article worked for me:
 
 sudo apt-get install pulseaudio-module-bluetooth
