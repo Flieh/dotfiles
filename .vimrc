@@ -277,7 +277,7 @@ let @p='ggdG"+p'
 " Automatically closing braces
 " could be replaced by a plugin like delimitMate or autoclose
 " the first line has two invisible spaces at the end that serve as tab
-inoremap {<CR> {<CR>}<Esc>ko  
+inoremap {<CR> {<CR>}<Esc>ko    
 inoremap [<CR> []<Esc>i
 inoremap (<CR> ()<Esc>i
 inoremap "<CR> ""<Esc>i
