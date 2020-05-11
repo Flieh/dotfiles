@@ -17,5 +17,4 @@ alias killcode="killall -9 code"
 alias py="python3"
 alias rmsand="rm -rf ~/sandbox/*"
 alias watchtest="nodemon --exec jasmine"
-alias gitgit="git add . && git commit -m '...' && git pull && git push"
 
