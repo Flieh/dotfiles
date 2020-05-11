@@ -1,4 +1,4 @@
-" VUNDLE START
+ " VUNDLE START
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -17,6 +17,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'easymotion/vim-easymotion' 
 " surround
 Plugin 'tpope/vim-surround'
+" you complete me
+Plugin 'ycm-core/YouCompleteMe'
 
 " use single leader for easymotion
 map <Leader> <Plug>(easymotion-prefix)
