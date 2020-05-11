@@ -268,3 +268,18 @@ func! WordProcessor()
   set complete+=s
 endfu
 com! WP call WordProcessor()
+
+" macros to copy to and from system clipboard
+" this only works on Gvim
+let @c='gg"+yG'
+let @p='ggdG"+p'
+
+" Automatically closing braces
+" could be replaced by a plugin like delimitMate or autoclose
+inoremap {<CR> {<CR>}<Esc>ko<tab>
+inoremap [<CR> []<Esc>i
+inoremap (<CR> ()<Esc>i
+inoremap "<CR> ""<Esc>i
+inoremap '<CR> ''<Esc>i
+inoremap <<CR> <><Esc>i
+inoremap "<CR> ""<Esc>i
