@@ -17,3 +17,9 @@ pulseaudio -k
 pulseaudio -D
 
 
+KILL UNWANTED PROCESS
+
+IDENTIFY IT WITH
+    pgrep <process-name-yer-lookin-fer>
+    kill -9 <pid> or <name-you-grepped-above>
+
