@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/flieh'
-let g:netrw_dirhist_2='/home/flieh/temp'
-let g:netrw_dirhist_3='/home/flieh/projects/saint-alexis'
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/flieh/projects/svelte/proj1/public'
+let g:netrw_dirhist_3='/home/flieh/projects/saintalexis'
+let g:netrw_dirhist_2='/home/flieh/projects/saintalexis/node_modules'
+let g:netrw_dirhist_1='/home/flieh/projects/saintalexis'
