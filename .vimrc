@@ -285,3 +285,4 @@ inoremap "<CR> ""<Esc>i
 inoremap '<CR> ''<Esc>i
 inoremap <<CR> <><Esc>i
 inoremap "<CR> ""<Esc>i
+inoremap `<CR> ``<Esc>i
