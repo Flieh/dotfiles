@@ -18,7 +18,7 @@ Plugin 'easymotion/vim-easymotion'
 " surround
 Plugin 'tpope/vim-surround'
 " you complete me
-Plugin 'ycm-core/YouCompleteMe'
+" Plugin 'ycm-core/YouCompleteMe'
 
 " use single leader for easymotion
 map <Leader> <Plug>(easymotion-prefix)

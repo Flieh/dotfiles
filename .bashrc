@@ -110,8 +110,9 @@ export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
 
 export PATH="/home/flieh/.linuxbrew/bin:$PATH"
 
-# map 192.168.1.50/Public to /mnt/myworldbook
-alias myworldbook="sudo mount.cifs //192.168.1.50/Public /mnt/myworldbook -o pass=''"
+# use sshfs to mount myworld book to NAS in home
+# requires sshfs installed and will ask for password to server
+sshfs flieh@192.168.1.50:Public ~/NAS
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
