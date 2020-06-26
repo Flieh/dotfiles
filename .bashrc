@@ -112,7 +112,8 @@ export PATH="/home/flieh/.linuxbrew/bin:$PATH"
 
 # use sshfs to mount myworld book to NAS in home
 # requires sshfs installed and will ask for password to server
-sshfs flieh@192.168.1.50:Public ~/NAS
+
+sshfs flieh@192.168.1.46:Public ~/NAS 
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -163,4 +164,10 @@ export NVM_DIR="/home/flieh/.nvm"
 # use vim keys on bash
 set -o vi
 # Ctrl+l clear screen
+
+
+# The following three lines have been added by UDB DB2.
+if [ -f /home/flieh/sqllib/db2profile ]; then
+    . /home/flieh/sqllib/db2profile
+fi
 

@@ -18,4 +18,6 @@ alias py="python3"
 alias rmsand="rm -rf ~/sandbox/*"
 alias watchtest="nodemon --exec jasmine"
 alias stgrp="set | grep -i"
+alias ptst="pytest-3"
+alias rs="source ~/dotfiles/.bashrc"
 
