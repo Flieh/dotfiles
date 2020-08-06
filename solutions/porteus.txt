@@ -1,5 +1,0 @@
-porteus packages must be unpacked into $PORTDIR which on the packbell install is /mnt/sda1/porteus/modules
-
-then create a symlink in /usr/bin to the module
-
-in order to update usm for first time edit /etc/usm/mirrors-slacky.txt. Uncomment the UK mirror and comment the Europe mirror.

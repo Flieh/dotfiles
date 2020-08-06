@@ -1,4 +1,7 @@
 # some more ls aliases
+alias sshfsnas='sshfs flieh@192.168.1.46:Public ~/NAS' 
+alias sshfsgranite='sshfs flieh@192.168.1.9:/home/flieh ~/GRANITE'
+alias sshfseee='sshfs knoppix@192.168.1.5:/home/knoppix ~/EEE'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'

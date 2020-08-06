@@ -1,4 +1,4 @@
- " VUNDLE START set nocompatible              " be iMproved, required
+ " nerdtree" VUNDLE START set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -54,11 +54,18 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
+Plug 'udalov/kotlin-vim'
+Plug 'mattn/emmet-vim'
 call plug#end() " VIM-PLUG END
 
 " nerdtree behavoir
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" emmet settings:
+" only load on html and css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -191,8 +198,8 @@ set mouse=a
 set cmdheight=2
  
 " Display line numbers on the left
-set number
-set relativenumber
+set number relativenumber
+
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
@@ -236,14 +243,13 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
  
 "------------------------------------------------------------
-let mapleader = "\<Space>"
+let mapleader = "\<Space>\<Space>"
 set nocompatible              " be iMproved, required
 " tap jk to enter Normal mode
 inoremap jk <ESC>
 nnoremap <leader>w :w<CR>
 syntax on 
 colorscheme desert 
-set number
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
