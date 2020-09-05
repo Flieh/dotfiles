@@ -1,47 +1,3 @@
- " nerdtree" VUNDLE START set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-
-" let Vundle manage Vundle, required
-" Plugin 'VundleVim/Vundle.vim'
-" comment with gcc
-" Plugin 'tpope/vim-commentary' 
-"easy motion
-" Plugin 'easymotion/vim-easymotion' 
-" surround
-" Plugin 'tpope/vim-surround'
-" you complete me
-" Plugin 'ycm-core/YouCompleteMe'
-" you complete me
-
-" use single leader for easymotion
-" map <Leader> <Plug>(easymotion-prefix)
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-" call vundle#end()            " required
-"VUNDLE END
-
 " VIM-PLUG START
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -52,11 +8,17 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-commentary' 
 Plug 'easymotion/vim-easymotion' 
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'udalov/kotlin-vim'
 Plug 'mattn/emmet-vim'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end() " VIM-PLUG END
+
+" markdown-preview behavoir
+" let vim_markdown_preview_github=1
 
 " nerdtree behavoir
 map <C-n> :NERDTreeToggle<CR>
@@ -66,6 +28,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " only load on html and css
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" " ale settings (linting and fixing)
+let g:ale_linters = {'javascript': ['standard']}
+let g:ale_fixers = {'javascript': ['standard']}
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -219,8 +187,9 @@ set pastetoggle=<F11>
  
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
  
 " Indentation settings for using hard tabs for indent. Display tabs as
@@ -313,6 +282,11 @@ inoremap "<CR> ""<Esc>i
 inoremap `<CR> ``<Esc>i
 nnoremap `` :w<CR>
 
+" map F3 to date time stamp
+nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
+" *********************************************************************************
 " COC CONFIGURATION START
 " TextEdit might fail if hidden is not set.  set hidden
 
