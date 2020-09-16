@@ -212,7 +212,7 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
  
 "------------------------------------------------------------
-let mapleader = "\<Space>\<Space>"
+let mapleader = "\<Space>"
 set nocompatible              " be iMproved, required
 " tap jk to enter Normal mode
 inoremap jk <ESC>
