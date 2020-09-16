@@ -1,32 +1,39 @@
 " VIM-PLUG START
+"
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-commentary' 
-Plug 'easymotion/vim-easymotion' 
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
-Plug 'udalov/kotlin-vim'
-Plug 'mattn/emmet-vim'
-Plug 'iamcco/markdown-preview.vim'
-Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'JamshedVesuna/vim-markdown-preview'
+  endif
+  call plug#begin('~/.vim/plugged')
+  Plug 'tpope/vim-commentary' 
+  Plug 'easymotion/vim-easymotion' 
+  Plug 'tpope/vim-surround'
+  Plug 'preservim/nerdtree'
+  Plug 'udalov/kotlin-vim'
+  Plug 'mattn/emmet-vim'
+  Plug 'iamcco/markdown-preview.vim'
+  Plug 'dense-analysis/ale'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'SirVer/ultisnips' " Track the engine.
+  Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 call plug#end() " VIM-PLUG END
+  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
 
 " markdown-preview behavoir
 " let vim_markdown_preview_github=1
 
 " nerdtree behavoir
-map <C-n> :NERDTreeToggle<CR>
+set nocompatible
+noremap <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " emmet settings:
-" only load on html and css
-let g:user_emmet_install_global = 0
+let g:user_emmet_install_global = 0 " only load on html and css
 autocmd FileType html,css EmmetInstall
 
 " " ale settings (linting and fixing)
@@ -40,33 +47,6 @@ let g:ale_fix_on_save = 1
 " and for plugins that are filetype specific.
  
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
- 
-
-"------------------------------------------------------------
-" Features {{{1
-"
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
- 
-" Set 'nocompatible' to ward off unexpected things that your distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
  
 " Enable syntax highlighting
@@ -91,13 +71,13 @@ syntax on
 " for keeping undo history after closing Vim entirely. Vim will complain if you
 " try to quit without saving, and swap files will keep you safe if your computer
 " crashes.
-set hidden
+" set hidden
  
 " Note that not everyone likes working this way (with the hidden option).
 " Alternatives include using tabs or split windows instead of re-using the same
 " window as mentioned above, and/or either of the following options:
-" set confirm
-" set autowriteall
+set confirm
+set autowriteall
  
 " Better command-line completion
 set wildmenu
@@ -212,18 +192,23 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
  
 "------------------------------------------------------------
-let mapleader = "\<Space>\<Space>"
-set nocompatible              " be iMproved, required
+let mapleader = "\<Space>"
+nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
+nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr> 
+
+" center page when scrolling
+nnoremap j jzz
+nnoremap k kzz
 " tap jk to enter Normal mode
-inoremap jk <ESC>
+inoremap jk <ESC>l
 nnoremap <leader>w :w<CR>
 syntax on 
 colorscheme desert 
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 " let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
