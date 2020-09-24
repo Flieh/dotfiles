@@ -193,15 +193,25 @@ nnoremap <C-L> :nohl<CR><C-L>
  
 "------------------------------------------------------------
 let mapleader = "\<Space>"
+"leader ev to edit .vimrc and sv to source
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
-nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr> 
+nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr>:q<cr> 
+nnoremap <leader>pt :!clear<cr>:!pytest-3 -x<cr>
 
 " center page when scrolling
 nnoremap j jzz
 nnoremap k kzz
+
 " tap jk to enter Normal mode
 inoremap jk <ESC>l
+
+" leader w to write file
 nnoremap <leader>w :w<CR>
+
+" leader nt to open new tab and nerdtree
+nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>tn :tabnew<cr>:NERDTreeToggle<CR>
+
 syntax on 
 colorscheme desert 
 
