@@ -198,7 +198,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr>:q<cr> 
 nnoremap <leader>pt :!clear<cr>:!pytest-3 -x<cr>
 nnoremap <leader>sc :!clear<cr>:!python3 scratch.py<cr>
-
+nnoremap <leader>jf :%!python -m json.tool<CR>
 " center page when scrolling
 nnoremap j jzz
 nnoremap k kzz
