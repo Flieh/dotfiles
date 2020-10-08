@@ -1,5 +1,4 @@
 " VIM-PLUG START
-"
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -45,7 +44,6 @@ let g:ale_fix_on_save = 1
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
- 
 filetype plugin indent on    " required
 set nocompatible
  
@@ -191,7 +189,6 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
  
-"------------------------------------------------------------
 let mapleader = "\<Space>"
 "leader ev to edit .vimrc and sv to source
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
@@ -211,8 +208,9 @@ inoremap jk <ESC>l
 " leader w to write file
 nnoremap <leader>w :w<CR>
 
-" leader nt to open new tab and nerdtree
+" leader nt to nerdtree
 nnoremap <leader>nt :NERDTreeToggle<CR>
+" leader tn to open new tab and nerdtree
 nnoremap <leader>tn :tabnew<cr>:NERDTreeToggle<CR>
 
 syntax on 
