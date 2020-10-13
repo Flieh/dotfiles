@@ -162,6 +162,7 @@ export NVM_DIR="/home/flieh/.nvm"
 
 # use vim keys on bash
 set -o vi
+bind '"jk": vi-movement-mode'
 # Ctrl+l clear screen
 
 
