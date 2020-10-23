@@ -16,6 +16,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'SirVer/ultisnips' " Track the engine.
   Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
+  Plug 'flazz/vim-colorschemes'
+  Plug 'vim-airline/vim-airline'
+  Plug 'townk/vim-autoclose'
 call plug#end() " VIM-PLUG END
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-e>"
@@ -193,9 +196,9 @@ let mapleader = "\<Space>"
 "leader ev to edit .vimrc and sv to source
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
 nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr>:q<cr> 
-nnoremap <leader>pt :!clear<cr>:!pytest-3 -x<cr>
-nnoremap <leader>sc :!clear<cr>:!python3 scratch.py<cr>
+nnoremap <leader>tp :!clear<cr>:!pytest-3 -x<cr>
 nnoremap <leader>tm :!clear<cr>:!python3 main.py<cr>
+nnoremap <leader>ts :!clear<cr>:!python3 scratch.py<cr>
 " beautify json
 nnoremap <leader>jf :%!python -m json.tool<CR>
 " center page when scrolling
@@ -268,14 +271,14 @@ let @p='ggdG"+p'
 
 " Automatically closing braces
 " could be replaced by a plugin like delimitMate or autoclose
-inoremap {<CR> {<CR>}<Esc>ko
-inoremap [<CR> []<Esc>i
-inoremap (<CR> ()<Esc>i
-inoremap "<CR> ""<Esc>i
-inoremap '<CR> ''<Esc>i
-inoremap <<CR> <><Esc>i
-inoremap "<CR> ""<Esc>i
-inoremap `<CR> ``<Esc>i
+" inoremap {<CR> {<CR>}<Esc>ko
+" inoremap [<CR> []<Esc>i
+" inoremap (<CR> ()<Esc>i
+" inoremap "<CR> ""<Esc>i
+" inoremap '<CR> ''<Esc>i
+" inoremap <<CR> <><Esc>i
+" inoremap "<CR> ""<Esc>i
+" inoremap `<CR> ``<Esc>i
 nnoremap `` :w<CR>
 
 " map F3 to date time stamp
