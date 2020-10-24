@@ -23,4 +23,4 @@ alias watchtest="nodemon --exec jasmine"
 alias stgrp="set | grep -i"
 alias ptst="pytest-3"
 alias rs="source ~/dotfiles/.bashrc"
-
+alias oracle-ubuntu='ssh -i .ssh/id_rsa ubuntu@130.61.189.196'
