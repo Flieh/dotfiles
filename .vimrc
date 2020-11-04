@@ -27,7 +27,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
 
 " markdown-preview behavoir
-" let vim_markdown_preview_github=1
+let vim_markdown_preview_github=1
 
 " nerdtree behavoir
 set nocompatible
@@ -43,6 +43,7 @@ let g:ale_linters = {'javascript': ['standard']}
 let g:ale_fixers = {'javascript': ['standard']}
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -196,7 +197,7 @@ let mapleader = "\<Space>"
 "leader ev to edit .vimrc and sv to source
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
 nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr>:q<cr> 
-nnoremap <leader>tp :!clear<cr>:!pytest-3 -x<cr>
+nnoremap <leader>tp :!tput sgr0 && clear<cr>:!pytest-3 -x<cr>
 nnoremap <leader>tm :!clear<cr>:!python3 main.py<cr>
 nnoremap <leader>ts :!clear<cr>:!python3 scratch.py<cr>
 " beautify json
@@ -435,3 +436,35 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " COC CONFIGURATION END
+
+let g:mkdp_path_to_chrome = "google-chrome"
+    " Path to the chrome or the command to open chrome (or other modern browsers).
+    " If set, g:mkdp_browserfunc would be ignored.
+
+    let g:mkdp_browserfunc = 'MKDP_browserfunc_default'
+    " Callback Vim function to open browser, the only parameter is the url to open.
+
+    let g:mkdp_auto_start = 0
+    " Set to 1, Vim will open the preview window on entering the Markdown
+    " buffer.
+
+    let g:mkdp_auto_open = 0
+    " Set to 1, Vim will automatically open the preview window when you edit a
+    " Markdown file.
+
+    let g:mkdp_auto_close = 1
+    " Set to 1, Vim will automatically close the current preview window when
+    " switching from one Markdown buffer to another.
+
+    let g:mkdp_refresh_slow = 0
+    " Set to 1, Vim will just refresh Markdown when saving the buffer or
+    " leaving from insert mode. With default 0, it will automatically refresh
+    " Markdown as you edit or move the cursor.
+
+    let g:mkdp_command_for_global = 0
+    " Set to 1, the MarkdownPreview command can be used for all files,
+    " by default it can only be used in Markdown files.
+
+    let g:mkdp_open_to_the_world = 0
+    " Set to 1, the preview server will be available to others in your network.
+    " By default, the server only listens on localhost (127.0.0.1).
