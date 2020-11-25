@@ -6,7 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   endif
   call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary' 
-  Plug 'davidhalter/jedi-vim' 
+  " Plug 'davidhalter/jedi-vim' 
   Plug 'easymotion/vim-easymotion' 
   Plug 'tpope/vim-surround'
   Plug 'preservim/nerdtree'

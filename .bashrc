@@ -149,7 +149,7 @@ fi
 gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"
 
 # mouse settings
-xset m 3 400
+# xset m 3 400
 
 ###-tns-completion-start-###
 if [ -f /home/flieh/.tnsrc ]; then 
