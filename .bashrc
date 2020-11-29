@@ -101,14 +101,18 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # go path settings
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$HOME/go/bin"
+# export PATH="$PATH:/usr/local/go/bin"
+# export PATH="$PATH:$HOME/go/bin"
 
 # npm path settings
 export PATH="$PATH:$HOME/npm/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
 
+# linux brew path
 export PATH="/home/flieh/.linuxbrew/bin:$PATH"
+
+# ruby gems
+export PATH="$PATH:/var/lib/gems/2.5.0/gems"
 
 # use sshfs to mount myworld book to NAS in home
 # requires sshfs installed and will ask for password to server
@@ -149,7 +153,7 @@ fi
 gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"
 
 # mouse settings
-# xset m 3 400
+xset m 3 400
 
 ###-tns-completion-start-###
 if [ -f /home/flieh/.tnsrc ]; then 
@@ -175,3 +179,19 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/flieh/.sdkman"
 [[ -s "/home/flieh/.sdkman/bin/sdkman-init.sh" ]] && source "/home/flieh/.sdkman/bin/sdkman-init.sh"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/flieh/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/flieh/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/flieh/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/flieh/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

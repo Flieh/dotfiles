@@ -26,3 +26,4 @@ alias rs="source ~/dotfiles/.bashrc"
 alias oracle-ubuntu='ssh ubuntu@130.61.189.196'
 alias mat='cmatrix -s'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias niceupdatedb='sudo nice -n 19 updatedb'
