@@ -6,27 +6,17 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   endif
   call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary' 
-  " Plug 'davidhalter/jedi-vim' 
   Plug 'easymotion/vim-easymotion' 
   Plug 'tpope/vim-surround'
   Plug 'preservim/nerdtree'
   Plug 'udalov/kotlin-vim'
   Plug 'mattn/emmet-vim'
   Plug 'iamcco/markdown-preview.vim'
-  Plug 'dense-analysis/ale'
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'ervandew/supertab'
-  Plug 'SirVer/ultisnips' " Track the engine.
-  Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
   Plug 'flazz/vim-colorschemes'
   Plug 'vim-airline/vim-airline'
   Plug 'townk/vim-autoclose'
 call plug#end() " VIM-PLUG END
-  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
 
 " markdown-preview behavoir
 let vim_markdown_preview_github=1
@@ -39,13 +29,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " emmet settings:
 let g:user_emmet_install_global = 0 " only load on html and css
 autocmd FileType html,css EmmetInstall
-
-" " ale settings (linting and fixing)
-let g:ale_linters = {'javascript': ['standard']}
-let g:ale_fixers = {'javascript': ['standard']}
-let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
-let g:ale_sign_column_always = 1
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -272,17 +255,6 @@ com! WP call WordProcessor()
 let @c='gg"+yG'
 let @p='ggdG"+p'
 
-" Automatically closing braces
-" could be replaced by a plugin like delimitMate or autoclose
-" inoremap {<CR> {<CR>}<Esc>ko
-" inoremap [<CR> []<Esc>i
-" inoremap (<CR> ()<Esc>i
-" inoremap "<CR> ""<Esc>i
-" inoremap '<CR> ''<Esc>i
-" inoremap <<CR> <><Esc>i
-" inoremap "<CR> ""<Esc>i
-" inoremap `<CR> ``<Esc>i
-nnoremap `` :w<CR>
 
 " map F3 to date time stamp
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
@@ -314,7 +286,7 @@ let g:mkdp_path_to_chrome = "google-chrome"
 
     let g:mkdp_command_for_global = 0
     " Set to 1, the MarkdownPreview command can be used for all files,
-    " by default it can only be used in Markdown files.
+    " by default it can jnly be used in Markdown files.
 
     let g:mkdp_open_to_the_world = 0
     " Set to 1, the preview server will be available to others in your network.
