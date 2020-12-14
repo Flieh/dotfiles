@@ -29,4 +29,4 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias niceupdatedb='sudo nice -n 19 updatedb'
 alias aspire='ssh flieh@192.168.1.30'
 alias granite='ssh flieh@192.168.1.9'
-
+alias ptwshow='ptw --runner "python3 -m pytest -s"'
