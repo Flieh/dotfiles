@@ -129,8 +129,6 @@ set t_vb=
 set mouse=a
  
 " Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
-set cmdheight=2
  
 " Display line numbers on the left
 set number relativenumber

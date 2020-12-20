@@ -114,6 +114,9 @@ export PATH="/home/flieh/.linuxbrew/bin:$PATH"
 # ruby gems
 export PATH="$PATH:/var/lib/gems/2.5.0/gems"
 
+# snap to path
+export PATH="$PATH:/snap/bin"
+
 # use sshfs to mount myworld book to NAS in home
 # requires sshfs installed and will ask for password to server
 
