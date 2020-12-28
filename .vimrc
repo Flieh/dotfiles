@@ -29,6 +29,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " emmet settings:
 let g:user_emmet_install_global = 0 " only load on html and css
 autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key=','
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,

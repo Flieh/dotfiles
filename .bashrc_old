@@ -100,16 +100,16 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# set Flask global
-export FLASK_APP=main.py
-export FLASK_ENV=development
+# go path settings
+# export PATH="$PATH:/usr/local/go/bin"
+# export PATH="$PATH:$HOME/go/bin"
 
 # npm path settings
 export PATH="$PATH:$HOME/npm/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
 
 # linux brew path
-export PATH="$PATH:$HOME/.linuxbrew/bin"
+export PATH="/home/flieh/.linuxbrew/bin:$PATH"
 
 # ruby gems
 export PATH="$PATH:/var/lib/gems/2.5.0/gems"
@@ -159,12 +159,12 @@ gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"
 xset m 3 400
 
 ###-tns-completion-start-###
-if [ -f $HOME/.tnsrc ]; then 
-    source $HOME/.tnsrc 
+if [ -f /home/flieh/.tnsrc ]; then 
+    source /home/flieh/.tnsrc 
 fi
 ###-tns-completion-end-###
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="/home/flieh/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # use vim keys on bash
@@ -174,25 +174,25 @@ bind '"jk": vi-movement-mode'
 
 
 # The following three lines have been added by UDB DB2.
-if [ -f $HOME/sqllib/db2profile ]; then
-    . $HOME/sqllib/db2profile
+if [ -f /home/flieh/sqllib/db2profile ]; then
+    . /home/flieh/sqllib/db2profile
 fi
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/home/flieh/.sdkman"
+[[ -s "/home/flieh/.sdkman/bin/sdkman-init.sh" ]] && source "/home/flieh/.sdkman/bin/sdkman-init.sh"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/ubuntu/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/ubuntu/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ubuntu/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/anaconda3/bin:$PATH"
+        export PATH="/home/ubuntu/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
