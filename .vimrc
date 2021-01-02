@@ -184,6 +184,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr>:q<cr>
 nnoremap <leader>tp :!tput sgr0 && clear<cr>:!pytest -vv -x<cr>
 nnoremap <leader>tm :!tput sgr0 && clear<cr>:!python3 main.py<cr>
 nnoremap <leader>ts :!clear<cr>:!python3 scratch.py<cr>
+nnoremap <leader>ta :!clear<cr>:!python3 app.py<cr>
 " beautify json
 nnoremap <leader>jf :%!python -m json.tool<CR>
 " center page when scrolling
@@ -192,6 +193,7 @@ nnoremap k kzz
 
 " tap jk to enter Normal mode
 inoremap jk <ESC>l
+inoremap JK <ESC>l
 
 " leader w to write file
 nnoremap <leader>w :w<CR>
