@@ -5,6 +5,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
   call plug#begin('~/.vim/plugged')
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'davidhalter/jedi-vim'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'dense-analysis/ale'
   Plug 'tpope/vim-commentary' 
   Plug 'easymotion/vim-easymotion' 
   Plug 'tpope/vim-surround'
@@ -18,6 +23,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'townk/vim-autoclose'
 call plug#end() " VIM-PLUG END
 
+" ultisnips config
+let g:UltiSnipsExpandTrigger='<c-u>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+
 " markdown-preview behavoir
 let vim_markdown_preview_github=1
 
@@ -30,6 +40,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:user_emmet_install_global = 0 " only load on html and css
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key=','
+
+" ale settings:
+let g:ale_linters = {
+      \ 'python': ['flake8','pylint']
+      \} 
+let g:ale_fixers = {
+      \ 'python': ['yapf']
+      \} 
+let g:ale_fix_on_save = 1
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -194,6 +213,9 @@ nnoremap k kzz
 " tap jk to enter Normal mode
 inoremap jk <ESC>l
 inoremap JK <ESC>l
+
+" assign ccc  for docstring
+inoremap ccc '''  '''<ESC>hhhi
 
 " leader w to write file
 nnoremap <leader>w :w<CR>
