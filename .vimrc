@@ -215,7 +215,7 @@ inoremap jk <ESC>l
 inoremap JK <ESC>l
 
 " assign ccc  for docstring
-inoremap ccc '''  '''<ESC>hhhi
+inoremap ccc """  """<ESC>hhhi
 
 " leader w to write file
 nnoremap <leader>w :w<CR>
