@@ -239,7 +239,12 @@ nnoremap <leader>tn :tabnew<cr>:NERDTreeToggle<CR>
 nnoremap <leader>ta :ALEToggle<CR>
 
 syntax on 
-colorscheme desert 
+" colorscheme desert 
+" colorscheme wombat 
+" colorscheme gemcolors 
+" colorscheme gryffin 
+" colorscheme inkpot 
+colo leo 
 
 " nnoremap <C-J> <C-W><C-J>
 " nnoremap <C-K> <C-W><C-K>
