@@ -49,6 +49,9 @@ let g:ale_fixers = {
       \ 'python': ['yapf']
       \} 
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_enter = 1
+let g:ale_sign_error = '*'
+let g:ale_sign_warning = '.'
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -200,12 +203,18 @@ let mapleader = "\<Space>"
 "leader ev to edit .vimrc and sv to source
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
 nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr>:q<cr> 
+
+" short cut to run pytest
 nnoremap <leader>tp :!tput sgr0 && clear<cr>:!pytest -vv -x<cr>
+
+" short cuts to python run (main.py, scratch.py or app.py)
 nnoremap <leader>tm :!tput sgr0 && clear<cr>:!python3 main.py<cr>
 nnoremap <leader>ts :!clear<cr>:!python3 scratch.py<cr>
 nnoremap <leader>ta :!clear<cr>:!python3 app.py<cr>
+
 " beautify json
 nnoremap <leader>jf :%!python -m json.tool<CR>
+
 " center page when scrolling
 nnoremap j jzz
 nnoremap k kzz
@@ -222,8 +231,12 @@ nnoremap <leader>w :w<CR>
 
 " leader nt to nerdtree
 nnoremap <leader>nt :NERDTreeToggle<CR>
+
 " leader tn to open new tab and nerdtree
 nnoremap <leader>tn :tabnew<cr>:NERDTreeToggle<CR>
+
+" leader ta to toggle ale linting
+nnoremap <leader>ta :ALEToggle<CR>
 
 syntax on 
 colorscheme desert 
@@ -314,3 +327,8 @@ let g:mkdp_path_to_chrome = "google-chrome"
     let g:mkdp_open_to_the_world = 0
     " Set to 1, the preview server will be available to others in your network.
     " By default, the server only listens on localhost (127.0.0.1).
+" set foldmethod=manual
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
