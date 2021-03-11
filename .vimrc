@@ -200,6 +200,7 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
  
 let mapleader = "\<Space>"
+
 "leader ev to edit .vimrc and sv to source
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
 nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr>:q<cr> 
