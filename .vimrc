@@ -5,9 +5,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
   call plug#begin('~/.vim/plugged')
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
-  Plug 'davidhalter/jedi-vim'
+
+  Plug 'ycm-core/YouCompleteMe'
+  " Plug 'davidhalter/jedi-vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'dense-analysis/ale'
   Plug 'tpope/vim-commentary' 
@@ -239,13 +239,16 @@ nnoremap <leader>tn :tabnew<cr>:NERDTreeToggle<CR>
 " leader ta to toggle ale linting
 nnoremap <leader>ta :ALEToggle<CR>
 
+" ycm to toggle ycm hover
+nmap <leader><leader> <plug>(YCMHover)
+
 syntax on 
 " colorscheme desert 
 " colorscheme wombat 
 " colorscheme gemcolors 
-" colorscheme gryffin 
+colorscheme gryffin 
 " colorscheme inkpot 
-colo leo 
+" colo leo 
 
 " nnoremap <C-J> <C-W><C-J>
 " nnoremap <C-K> <C-W><C-K>
