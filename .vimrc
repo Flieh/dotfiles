@@ -8,6 +8,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 
   Plug 'ycm-core/YouCompleteMe'
   " Plug 'davidhalter/jedi-vim'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
   Plug 'sheerun/vim-polyglot'
   Plug 'dense-analysis/ale'
   Plug 'tpope/vim-commentary' 
@@ -22,6 +24,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'vim-airline/vim-airline'
   Plug 'townk/vim-autoclose'
 call plug#end() " VIM-PLUG END
+"youcompleteme settings:
+set completeopt-=preview
 
 " ultisnips config
 let g:UltiSnipsExpandTrigger='<c-u>'
@@ -246,9 +250,9 @@ syntax on
 " colorscheme desert 
 " colorscheme wombat 
 " colorscheme gemcolors 
-colorscheme gryffin 
+" colorscheme gryffin 
 " colorscheme inkpot 
-" colo leo 
+colo leo 
 
 " nnoremap <C-J> <C-W><C-J>
 " nnoremap <C-K> <C-W><C-K>
