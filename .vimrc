@@ -191,7 +191,7 @@ set expandtab
  
  
 "------------------------------------------------------------
-" Mappings {{{1
+" Mappings 
 "
 " Useful mappings
  
@@ -213,16 +213,16 @@ nnoremap <leader>sv :source $MYVIMRC<cr>:edit!<cr>:noh<cr>:q<cr>
 nnoremap <leader>tp :!tput sgr0 && clear<cr>:!pytest -vv -x<cr>
 
 " short cuts to python run (main.py, scratch.py or app.py)
-nnoremap <leader>tm :!tput sgr0 && clear<cr>:!python3 main.py<cr>
-nnoremap <leader>ts :!clear<cr>:!python3 scratch.py<cr>
-nnoremap <leader>ta :!clear<cr>:!python3 app.py<cr>
+nnoremap <leader>ma :!tput sgr0 && clear<cr>:!python3 main.py<cr>
+nnoremap <leader>sc :!clear<cr>:!python3 scratch.py<cr>
+nnoremap <leader>ap :!clear<cr>:!python3 app.py<cr>
 
 " beautify json
 nnoremap <leader>jf :%!python -m json.tool<CR>
 
 " center page when scrolling
-nnoremap j jzz
-nnoremap k kzz
+" nnoremap j jzz
+" nnoremap k kzz
 
 " tap jk to enter Normal mode
 inoremap jk <ESC>l
@@ -245,6 +245,11 @@ nnoremap <leader>ta :ALEToggle<CR>
 
 " ycm to toggle ycm hover
 nmap <leader><leader> <plug>(YCMHover)
+
+" macros to copy to and from system clipboard
+" this only works on Gvim
+let @c='gg"+yG'
+let @p='ggdG"+p'
 
 syntax on 
 " colorscheme desert 
@@ -298,11 +303,6 @@ func! WordProcessor()
   set complete+=s
 endfu
 com! WP call WordProcessor()
-
-" macros to copy to and from system clipboard
-" this only works on Gvim
-let @c='gg"+yG'
-let @p='ggdG"+p'
 
 
 " map F3 to date time stamp
