@@ -5,8 +5,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
   call plug#begin('~/.vim/plugged')
-
   Plug 'ycm-core/YouCompleteMe'
+  Plug 'vim-scripts/Align'
   " Plug 'davidhalter/jedi-vim'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
