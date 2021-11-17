@@ -57,23 +57,23 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # first version is without git branch indicator
-if [ "$color_prompt" = yes ]; then
-     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
+# if [ "$color_prompt" = yes ]; then
+#      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]> '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w> '
+# fi
 
 # this version leaves off the $ for use with git branch indicator
-# if [ "$color_prompt" = yes ]; then
-#      PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
-# else
-#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
-# fi
-unset color_prompt force_color_prompt
+#if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
+#else
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
+#fi
 
+# unset color_prompt force_color_prompt
 # If you work with git, you've probably had that nagging sensation of not knowing what branch you are on. Worry no longer!
-# PS1+=":$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
-# export PS1 
+#PS1+=":$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
+#export PS1 
 # This will change your prompt to display not only your working directory but also your current git branch, if you have one. Pretty nifty!
 
 # If this is an xterm set the title to user@host:dir
@@ -117,10 +117,6 @@ export PATH="$PATH:/var/lib/gems/2.5.0/gems"
 # snap to path
 export PATH="$PATH:/snap/bin"
 
-# use sshfs to mount myworld book to NAS in home
-# requires sshfs installed and will ask for password to server
-
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -145,13 +141,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-# ~/code/web:beta_directory$ git checkout master
-# Switched to branch "master"
-# ~/code/web:master$ git checkout beta_directory
-# Switched to branch "beta_directory"
-# ~/code/web:beta_directory$
-
 # switch gnome mod button to "super" so alt can be used by vscode
 gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"
 
@@ -172,31 +161,60 @@ set -o vi
 bind '"jk": vi-movement-mode'
 # Ctrl+l clear screen
 
-
 # The following three lines have been added by UDB DB2.
 if [ -f $HOME/sqllib/db2profile ]; then
     . $HOME/sqllib/db2profile
 fi
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# testing to get my bash prompt to show git status
+# define some colors
+COLOR_RED="\033[0;31m"
+COLOR_YELLOW="\033[0;33m"
+COLOR_GREEN="\033[0;32m"
+COLOR_OCHRE="\033[38;5;95m"
+COLOR_BLUE="\033[0;34m"
+COLOR_WHITE="\033[0;37m"
+COLOR_RESET="\033[0m"
+
+# color formatting function:
+function git_color {
+  local git_status="$(git status 2> /dev/null)"
+
+  if [[ ! $git_status =~ "working directory clean" ]]; then
+    echo -e $COLOR_RED
+  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+    echo -e $COLOR_YELLOW
+  elif [[ $git_status =~ "nothing to commit" ]]; then
+    echo -e $COLOR_GREEN
+  else
+    echo -e $COLOR_OCHRE
+  fi
+}
+
+#git function:
+function git_branch {
+  local git_status="$(git status 2> /dev/null)"
+  local on_branch="On branch ([^${IFS}]*)"
+  local on_commit="HEAD detached at ([^${IFS}]*)"
+
+  if [[ $git_status =~ $on_branch ]]; then
+    local branch=${BASH_REMATCH[1]}
+    echo "($branch)"
+  elif [[ $git_status =~ $on_commit ]]; then
+    local commit=${BASH_REMATCH[1]}
+    echo "($commit)"
+  fi
+}
+
+# construct the prompt
+PS1="\[$COLOR_WHITE\]\n[\W]"          # basename of pwd
+PS1+="\[\$(git_color)\]"        # colors git status
+PS1+="\$(git_branch)"           # prints current branch
+PS1+="\[$COLOR_BLUE\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
+export PS1
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/flieh/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/flieh/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/flieh/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/flieh/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-source "$HOME/.cargo/env"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
