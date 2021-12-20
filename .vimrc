@@ -340,8 +340,8 @@ let g:mkdp_path_to_chrome = "google-chrome"
     let g:mkdp_open_to_the_world = 0
     " Set to 1, the preview server will be available to others in your network.
     " By default, the server only listens on localhost (127.0.0.1).
-" set foldmethod=manual
-set foldmethod=indent
+set foldmethod=manual
+" set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
