@@ -3,11 +3,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-  endif
-  call plug#begin('~/.vim/plugged')
-  Plug 'ycm-core/YouCompleteMe'
+endif
+
+call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/Align'
-  " Plug 'davidhalter/jedi-vim'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'sheerun/vim-polyglot'
@@ -16,24 +15,17 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'easymotion/vim-easymotion' 
   Plug 'tpope/vim-surround'
   Plug 'preservim/nerdtree'
-  " Plug 'udalov/kotlin-vim'
   Plug 'mattn/emmet-vim'
-  " Plug 'iamcco/markdown-preview.vim'
   Plug 'ervandew/supertab'
   Plug 'flazz/vim-colorschemes'
   Plug 'vim-airline/vim-airline'
   Plug 'townk/vim-autoclose'
 call plug#end() " VIM-PLUG END
-"youcompleteme settings:
-set completeopt-=preview
 
 " ultisnips config
 let g:UltiSnipsExpandTrigger='<c-u>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
-" markdown-preview behavoir
-let vim_markdown_preview_github=1
 
 " nerdtree behavoir
 set nocompatible
@@ -243,9 +235,6 @@ nnoremap <leader>tn :tabnew<cr>:NERDTreeToggle<CR>
 " leader ta to toggle ale linting
 nnoremap <leader>ta :ALEToggle<CR>
 
-" ycm to toggle ycm hover
-nmap <leader><leader> <plug>(YCMHover)
-
 " macros to copy to and from system clipboard
 " this only works on Gvim
 let @c='gg"+yG'
@@ -304,42 +293,10 @@ func! WordProcessor()
 endfu
 com! WP call WordProcessor()
 
-
 " map F3 to date time stamp
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
-let g:mkdp_path_to_chrome = "google-chrome"
-    " Path to the chrome or the command to open chrome (or other modern browsers).
-    " If set, g:mkdp_browserfunc would be ignored.
-
-    let g:mkdp_browserfunc = 'MKDP_browserfunc_default'
-    " Callback Vim function to open browser, the only parameter is the url to open.
-
-    let g:mkdp_auto_start = 0
-    " Set to 1, Vim will open the preview window on entering the Markdown
-    " buffer.
-
-    let g:mkdp_auto_open = 0
-    " Set to 1, Vim will automatically open the preview window when you edit a
-    " Markdown file.
-
-    let g:mkdp_auto_close = 1
-    " Set to 1, Vim will automatically close the current preview window when
-    " switching from one Markdown buffer to another.
-
-    let g:mkdp_refresh_slow = 0
-    " Set to 1, Vim will just refresh Markdown when saving the buffer or
-    " leaving from insert mode. With default 0, it will automatically refresh
-    " Markdown as you edit or move the cursor.
-
-    let g:mkdp_command_for_global = 0
-    " Set to 1, the MarkdownPreview command can be used for all files,
-    " by default it can jnly be used in Markdown files.
-
-    let g:mkdp_open_to_the_world = 0
-    " Set to 1, the preview server will be available to others in your network.
-    " By default, the server only listens on localhost (127.0.0.1).
 set foldmethod=manual
 " set foldmethod=indent
 set foldnestmax=10
