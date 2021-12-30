@@ -224,7 +224,7 @@ inoremap JK <ESC>l
 inoremap ccc """  """<ESC>hhhi
 
 " leader w to write file
-nnoremap <leader>w :w<CR>
+nnoremap <leader>ww :w<CR>
 
 " leader nt to nerdtree
 nnoremap <leader>nt :NERDTreeToggle<CR>
