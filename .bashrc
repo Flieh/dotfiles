@@ -109,7 +109,7 @@ export PATH="$PATH:$HOME/npm/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
 
 # linux brew path
-export PATH="$PATH:$HOME/.linuxbrew/bin"
+export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
 
 # ruby gems
 export PATH="$PATH:/var/lib/gems/2.5.0/gems"
@@ -152,9 +152,6 @@ if [ -f $HOME/.tnsrc ]; then
     source $HOME/.tnsrc 
 fi
 ###-tns-completion-end-###
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # use vim keys on bash
 set -o vi
@@ -223,3 +220,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

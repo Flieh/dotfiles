@@ -3,3 +3,4 @@ if [ -f ~/.bashrc ]; then
 fi
 eval $(/bin/brew shellenv)
 mount -t cifs -o username=wayman,password=wayman //192.168.1.35/fliehdrive /home/flieh/FDrive
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

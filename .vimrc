@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'flazz/vim-colorschemes'
   Plug 'vim-airline/vim-airline'
   Plug 'townk/vim-autoclose'
+  Plug 'ambv/black'
 call plug#end() " VIM-PLUG END
 
 " ultisnips config
@@ -38,11 +39,17 @@ autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key=','
 
 " ale settings:
+" let g:ale_linters = {
+"       \ 'python': ['flake8','pylint']
+"       \} 
+" let g:ale_fixers = {
+"       \ 'python': ['yapf']
+"       \} 
 let g:ale_linters = {
-      \ 'python': ['flake8','pylint']
+      \ 'python': ['pylint']
       \} 
 let g:ale_fixers = {
-      \ 'python': ['yapf']
+      \ 'python': ['black', 'yapf']
       \} 
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_enter = 1
